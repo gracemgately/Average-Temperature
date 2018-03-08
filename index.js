@@ -29,7 +29,5 @@ const transformer = transform((record) => recordsAndAverageTemp.addToRecords(rec
 transformer.on('error', (err) => console.error(err));
 
 const stream = fileToRead.pipe(parser).pipe(transformer);
-stream.on('finish', () => {
-    console.log(recordsAndAverageTemp.getAverageTemp());
-})
+stream.on('finish', () => console.log(recordsAndAverageTemp.getAverageTemp()));
 
